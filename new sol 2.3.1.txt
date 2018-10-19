@@ -1,0 +1,27 @@
+first consider the input as matrix which has i row and j column with element mij
+
+look at matrix as a relation with three attributes: the row number, the column number & the value in that column & row. so we have:
+   
+M(I,J,v)
+
+map: (i,j,mij)  for i,j=1 up to the number of rows & columns
+
+reduce: apllying operator @  to the result of mij associated with the key-value pair (i,j).
+the output comes from the result of grouping & aggregation opreation Y
+  Y (i,j),@(mij)(M)
+
+
+(a) :  put @ max
+(b) : put @ AVG
+(c) & (d):
+look at matrix as a relation with two attributes: the value in that column & row and the number of occurrences for each integer
+M(v,m)  --- v is the value of mij at relation M
+
+map: (mij,m)  for i,j=1 up to the number of rows & columns
+ 
+reduce: (mij,1)
+
+map: N(w,1)    ---  w is the value of mij at relation N
+
+reduce: * N(M)  ---- * is pojection (for each tuple in M eliminate tuple in N)
+
