@@ -1,0 +1,4 @@
+(a)not to use combiner means reducers have to do all its duty itself but what makes skew is difference in number of reducer & reduce tasks in compute node ,thus there isn't significant skew in the times.
+(b)no, this action cause we have the averaging of the total time required by previous one . because one way for reducing skew is useing less reduce tasks rather than reducer.
+and increaseing the number of reduce tasks, depends on the length of reduce . more short reduces in a single node can run faster than long once.
+(c)yes,using combiner at the 100 map tasks makes different amount of time, because it decreases its duty and computeing process in node   
