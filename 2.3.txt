@@ -1,0 +1,36 @@
+each integer occupys about 28B, in other hand chunk's capacity is 16-65 MB
+so chunk can hold 571,429 - 2,285,715 integers 
+if we put 1,000,000 integers in a chunk 
+
+
+consider the chunk as matrix 1000*1000 which is contains 10 submatrix 100*100
+
+
+Map1: (key= number of row,value= integer )
+i from 1 to 100
+
+(i,v1) (i,v2) ... (i,v99) (i,v100)
+
+group by key: (i,[v1,v2,...,v100])
+
+reduce1:(i,mi=max[v1,v2,...,v100])
+
+
+Map2: (i,mi)
+   
+group by key:(m^j,[m1,m2,...,m100])
+
+reduce: (m^j,v^j=max[m1,m2,...,m100])
+
+for every subchunk
+j from 1 to 10
+Map3: (m^j,v^j)
+
+group by: (m^j,[v^1,v^2,...,v^10])
+
+reduce: (m*,v*=max[v^1,v^2,...,v^10])
+
+by this way  max value for data 1,000,000 compute.
+repeat to compute for all
+
+
