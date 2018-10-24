@@ -1,0 +1,24 @@
+# n nodes and a single dead end
+first omit the dead end so each node has n-2 link out 
+v_0=[ 1/n-1 1/n-1 ... 1/n-1]    % domain v_0 is n*1
+M is a square matrix with domain n*n and all element exepet that diagonal are 1/n-2
+
+M = [ 0     1/n-2  ....   1/n-2
+      1/n-2    0   ....   1/n-2
+      .                    .
+      .                    .
+      .            0      1/n-2
+      1/n-2  ...   1/n-2   0   ]
+      
+      v'= B *M *V_0 + (1-B)/n [1 1 ...1]'
+        =[(n-2-2B)/n(n-2)   ...     (n-2-2B)/n(n-2)]'
+        
+        
+        if n=4 then
+        [18/40 ...  18/40]'
+        [59/100 .... 59/100]'
+        [151/125 ....  151/125]'
+        [3749/2500 .... 3749/2500]'
+        and ...
+        
+        for that single node n*(1/n-1)*(3749/2500)
